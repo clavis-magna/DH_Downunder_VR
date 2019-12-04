@@ -1,7 +1,11 @@
 /*
- * any game game object with this script attached to it will look for an object called 'player'
+ * any game object with this script attached to it will look for the mainCamera
  * and continually 'look' towards it
- * used to keep in world text looking at the player camera front on
+ * 
+ * used (for example) to keep in world text looking at the player camera front on
+ * or for creating other billborad effects
+ * 
+ * use lockOnYRotoation in the inspector to lock or unlock rotation on Y axis
 */
 
 using System.Collections;
@@ -10,16 +14,20 @@ using UnityEngine;
 
 public class lookAtCamera : MonoBehaviour {
 
-    Camera targetPlayer;
+    public bool lockOnYRotoation = true;
 
 	// Use this for initialization
 	void Start () {
-        targetPlayer = Camera.main;
+
 	}
 
 	// Update is called once per frame
 	void Update () {
-        //transform.LookAt(targetPlayer.transform.position);
-        transform.rotation = Quaternion.LookRotation(transform.position - Camera.main.transform.position);
+        Vector3 lookPos = transform.position - Camera.main.transform.position;
+        if (lockOnYRotoation == true)
+        {
+            lookPos.y = 0;
+        }
+        transform.rotation = Quaternion.LookRotation(lookPos);
     }
 }
