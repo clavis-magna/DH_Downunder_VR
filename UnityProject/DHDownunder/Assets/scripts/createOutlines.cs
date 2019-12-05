@@ -37,9 +37,15 @@ public class createOutlines : MonoBehaviour
     // with the current line drawing method this is quite laggy
     public bool drawWholeWorld = false;
 
+    // draw on a plane or sphere?
+    public bool drawOnSphere = false;
+
     // the map scale
     public int scaleX;
     public int scaleY;
+
+    // the sphere radius
+    float radius = 200;
 
     // wait a fraction of a second on play before loading data
     // a bit of a hack to makes sure everything else is setup first
@@ -80,9 +86,9 @@ public class createOutlines : MonoBehaviour
                 float thisLon = float.Parse(theOutlineData[i]["lon"].ToString());
                 float thisGroup = float.Parse(theOutlineData[i]["group"].ToString());
 
-                float radius = 200;
 
-                if(lastGroup != thisGroup && lastGroup != 0 && drawThisOne)
+
+                if (lastGroup != thisGroup && lastGroup != 0 && drawThisOne)
                 {
                     GameObject newGameObject = new GameObject(lastRegion);
                     theLineRenderer = newGameObject.gameObject.AddComponent<LineRenderer>() as LineRenderer;
@@ -96,20 +102,23 @@ public class createOutlines : MonoBehaviour
                     count = 0;
                 }
 
+                float x, y, z;
                 // this is for putting the outline on a sphere
-                // currently we want it on a flat map :(
-                /*
-                float phi = (90 - thisLat) * (Mathf.PI / 180);
-                float theta = (thisLon + 180) * (Mathf.PI / 180);
-                float z = -((radius) * Mathf.Sin(phi) * Mathf.Cos(theta));
-                float x = ((radius) * Mathf.Sin(phi) * Mathf.Sin(theta));
-                float y = ((radius) * Mathf.Cos(phi));
-                */
-
-                float y = 0.01f;
-                float[] thisXY = helpers.getXYPos(thisLat, thisLon, scaleX, scaleY);
-                float x = thisXY[0];
-                float z = thisXY[1];
+                if (drawOnSphere)
+                {
+                    float phi = (90 - thisLat) * (Mathf.PI / 180);
+                    float theta = (thisLon + 180) * (Mathf.PI / 180);
+                    z = -((radius) * Mathf.Sin(phi) * Mathf.Cos(theta));
+                    x = ((radius) * Mathf.Sin(phi) * Mathf.Sin(theta));
+                    y = ((radius) * Mathf.Cos(phi));
+                }
+                else
+                {
+                    y = 0.01f;
+                    float[] thisXY = helpers.getXYPos(thisLat, thisLon, scaleX, scaleY);
+                    x = thisXY[0];
+                    z = thisXY[1];
+                }
 
                 Vector3 thisPos = new Vector3(x, y, z);
 

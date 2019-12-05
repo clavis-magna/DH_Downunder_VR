@@ -182,10 +182,13 @@ MonoBehaviour:
   lastGroup: 0
   lastRegion: 
   lineMaterial: {fileID: 0}
-  countryName: []
+  countryName:
+  - Vanuatu
+  - Australia
   drawWholeWorld: 1
-  scaleX: 20
-  scaleY: 10
+  drawOnSphere: 1
+  scaleX: 100
+  scaleY: 200
 --- !u!1001 &1645902187
 PrefabInstance:
   m_ObjectHideFlags: 0
