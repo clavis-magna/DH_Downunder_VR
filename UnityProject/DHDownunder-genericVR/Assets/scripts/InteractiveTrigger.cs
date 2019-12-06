@@ -47,9 +47,10 @@ public class InteractiveTrigger : MonoBehaviour
 
     }
 
-    //-------------------------------------------------
+    //
     // Called when a Hand starts hovering over this object
-    //-------------------------------------------------
+    //
+
     private void OnTriggerEnter(Collider other)
     {
         print("enter");
@@ -67,9 +68,10 @@ public class InteractiveTrigger : MonoBehaviour
         }
     }
 
-    //-------------------------------------------------
+    //
     // Called every Update() while a Hand is hovering over this object
-    //-------------------------------------------------
+    //
+
     private void OnTriggerStay(Collider other)
     {
         print("stay");
@@ -98,9 +100,10 @@ public class InteractiveTrigger : MonoBehaviour
 
     }
 
-    //-------------------------------------------------
+    //
     // Called when a Hand stops hovering over this object
-    //-------------------------------------------------
+    //
+
     private void OnTriggerExit(Collider other)
     {
         print("exit");
@@ -111,5 +114,61 @@ public class InteractiveTrigger : MonoBehaviour
             GetComponent<Renderer>().material = startMaterial;
         }
 
+    }
+
+    //
+    // mouse fallback for nonVR
+    //
+
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonUp(0))
+        {
+            generalText.text = generalHoverTextContent;
+        }
+    }
+
+    void OnMouseDrag()
+    {
+        generalText.text = generalAttachTextContent;
+
+        float distance_to_screen = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        {
+            transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance_to_screen));
+        }
+        else
+        {
+            Vector3 pos_move = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance_to_screen));
+            transform.position = new Vector3(pos_move.x, transform.position.y, pos_move.z);
+        }
+
+    }
+
+    private void OnMouseEnter()
+    {
+        generalText.text = generalHoverTextContent;
+
+        if (changeMaterialOnHover)
+        {
+            GetComponent<Renderer>().material = hoverMaterial;
+        }
+
+        if (playSoundOnInteraction)
+        {
+            audioSource.clip = soundToPlayOnHover;
+            audioSource.Play();
+        }
+    }
+
+    private void OnMouseExit()
+    {
+        generalText.text = generalTextContent;
+
+        if (changeMaterialOnHover)
+        {
+            GetComponent<Renderer>().material = startMaterial;
+        }
     }
 }
