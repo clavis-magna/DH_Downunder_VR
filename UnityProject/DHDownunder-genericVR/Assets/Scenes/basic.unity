@@ -369,6 +369,7 @@ GameObject:
   - component: {fileID: 855957394}
   - component: {fileID: 855957393}
   - component: {fileID: 855957392}
+  - component: {fileID: 855957396}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -559,6 +560,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &855957396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855957390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4738756d245b9504d957139914ee1703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockOnYRotoation: 1
 --- !u!1 &924372597 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2957277722971054479, guid: 30fe85b947e7ff2409e34d61a17b76c1,
@@ -768,7 +782,6 @@ GameObject:
   - component: {fileID: 1306997498}
   - component: {fileID: 1306997497}
   - component: {fileID: 1306997501}
-  - component: {fileID: 1306997502}
   - component: {fileID: 1306997503}
   m_Layer: 0
   m_Name: Interactable
@@ -871,19 +884,6 @@ MonoBehaviour:
   playSoundOnInteraction: 1
   soundToPlayOnHover: {fileID: 8300000, guid: 48f57ab6232294fb28dc12d32a0de52c, type: 3}
   canPickUp: 1
---- !u!114 &1306997502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1306997496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4738756d245b9504d957139914ee1703, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lockOnYRotoation: 1
 --- !u!82 &1306997503
 AudioSource:
   m_ObjectHideFlags: 0
