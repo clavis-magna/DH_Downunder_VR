@@ -3,7 +3,7 @@
 // which is an part of data set for the word for 'dog' extracted from Simon Greenhill's 'Austronesian basic vocab database' 
 // in this case the data file is called data.csv and in located in the **StreamingAssets** folder
 
-// this verison does very little but read the data in and then print some values to the console.
+// this verison will display data on the map by instatiating some text at given locations from the CSV.
 
 
 using System.Collections;
@@ -11,10 +11,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class readData : MonoBehaviour
+public class readDataAndDisplay : MonoBehaviour
 {
     // list to hold data
     List<Dictionary<string, object>> data;
+
+    public GameObject locationMarker;
 
     // csv filename
     // we will look for it in the StreamingAssets folder (include .csv extension)
@@ -37,12 +39,16 @@ public class readData : MonoBehaviour
 
         // test read of data
         // we iterate through all the data and print it out to the console
+        // we will use lat, long and dog columns to display the data on a map
         for (var i = 0; i < data.Count; i++)
         {
-            print(i+": ");
-            print(data[i]["latitude"]);
-            print(data[i]["longitude"]);
-            print(data[i]["dog"]);
+
+            float lat = float.Parse(data[i]["latitude"].ToString());
+            float lon = float.Parse(data[i]["longitude"].ToString());
+            string dogWord = data[i]["dog"].ToString();
+
+            Vector3 positionToInstatiate = helpers.getPointOnSphere(lat, lon, 200);
+            Instantiate(locationMarker, positionToInstatiate, Quaternion.identity);
         }
     }
 
