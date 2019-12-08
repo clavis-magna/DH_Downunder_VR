@@ -1,6 +1,7 @@
 ﻿// sample of reading data using the CSVReader class
 // uses a CSV file directly exported from: https://docs.google.com/spreadsheets/d/11EP0cDRxu1Pa3kK0OVMwSt1zpXIdRYSv-T66sj-mrrs/edit?usp=sharing
-// which is an part of data set for the word for 'dog' extracted from Simon Greenhill's 'Austronesian basic vocab database' 
+// which is an part of data set for the word for 'dog' extracted from Simon Greenhill's 'Austronesian basic vocab database'
+// Developed for the Layered Horizons project. 
 // in this case the data file is called data.csv and in located in the **StreamingAssets** folder
 
 // this verison will display data on the map by instatiating some text at given locations from the CSV.
