@@ -10,11 +10,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using TMPro;
 
 public class readDataAndDisplay : MonoBehaviour
 {
     // list to hold data
     List<Dictionary<string, object>> data;
+    TextMeshPro theText;
 
     public GameObject locationMarker;
 
@@ -27,7 +29,8 @@ public class readDataAndDisplay : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    { 
+        
         // create the file path to the CSV data as a string
         // you would change this if you wanted to look for the file elsewhere
         string dataFilePath = Path.Combine(Application.streamingAssetsPath, CSVFileName);
@@ -48,7 +51,9 @@ public class readDataAndDisplay : MonoBehaviour
             string dogWord = data[i]["dog"].ToString();
 
             Vector3 positionToInstatiate = helpers.getPointOnSphere(lat, lon, 200);
-            Instantiate(locationMarker, positionToInstatiate, Quaternion.identity);
+            GameObject newMarker = Instantiate(locationMarker, positionToInstatiate, Quaternion.identity);
+            theText = newMarker.GetComponentInChildren<TextMeshPro>();
+            theText.text = dogWord;
         }
     }
 
