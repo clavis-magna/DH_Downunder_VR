@@ -1,10 +1,10 @@
 /*
  * any game object with this script attached to it will look for the mainCamera
  * and continually 'look' towards it
- *
+ * 
  * used (for example) to keep in world text looking at the player camera front on
  * or for creating other billborad effects
- *
+ * 
  * use lockOnYRotoation in the inspector to lock or unlock rotation on Y axis
 */
 

@@ -22,13 +22,13 @@ public static class helpers
 
     //
     // getPointOnSphere
-    // given a lat and long will map to coordinates on a sphere
+    // given a lat and long will map to coordinates on a sphere of a set radius
     // see: https://stackoverflow.com/questions/36369734/how-to-map-latitude-and-longitude-to-a-3d-sphere
     //
     public static Vector3 getPointOnSphere(float lat, float lon, float radius)
     {
-      float phi = (90 - thisLat) * (Mathf.PI / 180);
-      float theta = (thisLon + 180) * (Mathf.PI / 180);
+      float phi = (90 - lat) * (Mathf.PI / 180);
+      float theta = (lon + 180) * (Mathf.PI / 180);
       float z = -((radius) * Mathf.Sin(phi) * Mathf.Cos(theta));
       float x = ((radius) * Mathf.Sin(phi) * Mathf.Sin(theta));
       float y = ((radius) * Mathf.Cos(phi));
