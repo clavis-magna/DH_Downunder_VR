@@ -16,4 +16,5 @@ https://docs.google.com/presentation/d/1cUXTNv0UHdGLOGOJXXRveDCrRjNB65JjB0mQfYSB
 
 ## Workshop notes
 (Though not comprehensive, these notes are a good place to start when you are trying to remember what we did and where to look for more info. I will continue to update these notes, so please feel free to contact me if you need reminding of something not listed in the notes)
-session 1: https://docs.google.com/document/d/122hkuBnNeMCfdkBPIwrCjaVX3eIC0iCtpkcm-lfr0mI/edit?usp=sharing
+
+* session 1: https://docs.google.com/document/d/122hkuBnNeMCfdkBPIwrCjaVX3eIC0iCtpkcm-lfr0mI/edit?usp=sharing
