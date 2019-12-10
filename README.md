@@ -10,3 +10,6 @@ Content will begin to appear here as we get closer to DH Downunder 2019. We will
 The main thing to have organised before our first session is to install the Unity game engine on your computer.Unity is available for PC or MAC and via a "free" personal version here -> https://store.unity.com/download?ref=personal . The current version (Nov 29) is 2019.2.14 
 
 Be sure to also install a code editor. The unity installer will recomend and install visual studio as part of it original installation. I recomend giving it a try even if you prefer another editor for any other code editing you might do. 
+
+## SLIDES
+https://docs.google.com/presentation/d/1cUXTNv0UHdGLOGOJXXRveDCrRjNB65JjB0mQfYSBAuU/edit?usp=sharing
